@@ -1,0 +1,41 @@
+{
+  "kind": "collectionType",
+  "collectionName": "customers",
+  "info": {
+    "singularName": "customer",
+    "pluralName": "customers",
+    "displayName": "customer"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "account_id": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "nombre_razon_social": {
+      "type": "string",
+      "required": true
+    },
+    "documento_cuit": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "contacts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::contact.contact",
+      "mappedBy": "customer"
+    },
+    "cases": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::case.case",
+      "mappedBy": "customer"
+    }
+  }
+}

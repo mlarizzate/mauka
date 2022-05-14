@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contacts",
+  "info": {
+    "singularName": "contact",
+    "pluralName": "contacts",
+    "displayName": "contact",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Instagram",
+        "Facebook",
+        "Email",
+        "Whatsapp",
+        "WebForm"
+      ],
+      "required": true
+    },
+    "customer": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "contacts"
+    },
+    "credential": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::credential.credential"
+    },
+    "conversation": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::conversation.conversation",
+      "inversedBy": "contact"
+    }
+  }
+}
